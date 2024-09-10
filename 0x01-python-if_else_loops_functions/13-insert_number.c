@@ -1,3 +1,8 @@
+/*
+ * File: 13-insert_number.c
+ * Auth: Brennan D Baraban
+ */
+
 #include "lists.h"
 
 /**
@@ -10,17 +15,15 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-    listint_t *node = *head, *new;
+    listint_t *node = *head;
+    listint_t *new;
 
-    /* Allocate memory for the new node */
     new = malloc(sizeof(listint_t));
     if (new == NULL)
         return (NULL);
 
-    /* Assign the value to the new node */
     new->n = number;
 
-    /* Insert the new node at the beginning if necessary */
     if (node == NULL || node->n >= number)
     {
         new->next = node;
@@ -28,11 +31,9 @@ listint_t *insert_node(listint_t **head, int number)
         return (new);
     }
 
-    /* Traverse the list to find the correct insertion point */
-    while (node && node->next && node->next->n < number)
+    while (node->next && node->next->n < number)
         node = node->next;
 
-    /* Insert the new node at the correct position */
     new->next = node->next;
     node->next = new;
 
