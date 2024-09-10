@@ -1,19 +1,12 @@
 #!/usr/bin/python3
+# 8-uppercase.py
+# Brennan D Baraban <375@holbertonschool.com>
+
 
 def uppercase(str):
-    """
-    Converts all lowercase letters in a string to uppercase.
-    
-    Args:
-        str: The input string.
-    """
-    for i in str:
-        # Check if the character is lowercase (between 'a' and 'z')
-        if ord("a") <= ord(i) <= ord("z"):
-            # Convert lowercase letter to uppercase by adjusting the ASCII value
-            i = chr(ord(i) - 32)
-        # Print the character without a newline and continue
-        print("{:s}".format(i), end="")
-    
-    # Print a newline after the loop finishes
-    print()
+    """Print a string in uppercase."""
+    for c in str:
+        if ord(c) >= 97 and ord(c) <= 122:
+            c = chr(ord(c) - 32)
+        print("{}".format(c), end="")
+    print("")
