@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This script prints the sum, difference, product, and quotient of 10 and 5.
+# 1-calculation.py
 
 if __name__ == "__main__":
     """Print the sum, difference, multiple and quotient of 10 and 5."""
@@ -8,7 +8,6 @@ if __name__ == "__main__":
     a = 10
     b = 5
 
-    # Print the results of the arithmetic operations
     print("{} + {} = {}".format(a, b, add(a, b)))
     print("{} - {} = {}".format(a, b, sub(a, b)))
     print("{} * {} = {}".format(a, b, mul(a, b)))
