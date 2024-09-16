@@ -1,15 +1,10 @@
 #!/usr/bin/python3
-
-def print_matrix_integer(matrix=None):
-    """
-    Prints a matrix of integers.
-
-    Args:
-        matrix (list of lists of int): The matrix to be printed.
-    """
-    if matrix is None or not matrix:
-        print()
-        return
-    
-    for row in matrix:
-        print(" ".join("{:d}".format(item) for item in row))
+def print_matrix_integer(matrix=[[]]):
+    if not matrix:
+        return None
+    for submatrix in matrix:
+        if len(submatrix) == 0:
+            print()
+        for i in range(len(submatrix)):
+            print("{:d}".format(submatrix[i]),
+                  end="\n" if i is len(submatrix) - 1 else " ")
