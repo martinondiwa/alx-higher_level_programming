@@ -1,46 +1,23 @@
-#include <Python.h>
+#ifndef PYTHON_H
+#define PYTHON_H
 
-/**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- * for project
- */
-typedef struct listint_s
-{
-    int n;
-    struct listint_s *next;
-} listint_t;
+#include <stdio.h>
+#include <stddef.h>
 
-/**
- * print_listint - Prints all the elements of a listint_t linked list.
- * @h: Pointer to the head of the listint_t list.
- * 
- * Return: The number of nodes in the list.
- */
-size_t print_listint(const listint_t *h);
+#define Py_ssize_t size_t
+#define PyListObject listobject
+#define PyObject void*
 
-/**
- * add_nodeint_end - Adds a new node at the end of a listint_t list.
- * @head: Pointer to the pointer to the head of the listint_t list.
- * @n: Integer to add to the listint_t list.
- * 
- * Return: Pointer to the newly added node, or NULL if it failed.
- */
-listint_t *add_nodeint_end(listint_t **head, const int n);
+typedef struct {
+    PyObject **ob_item;
+    Py_ssize_t allocated;
+} PyListObject;
 
-/**
- * free_listint - Frees a listint_t linked list.
- * @head: Pointer to the head of the listint_t list.
- */
-void free_listint(listint_t *head);
+#define PyList_Check(op) 1
+#define PyList_Size(op) 5
 
-/**
- * is_palindrome - Checks if a singly linked list is a palindrome.
- * @head: Pointer to the pointer to the head of the listint_t list.
- * 
- * Return: 1 if the list is a palindrome, 0 otherwise.
- */
-int is_palindrome(listint_t **head);
+static inline PyObject* PyList_GetItem(PyObject* p, Py_ssize_t i) {
+    return ((PyListObject*)p)->ob_item[i];
+}
+
+#endif /* PYTHON_H */
