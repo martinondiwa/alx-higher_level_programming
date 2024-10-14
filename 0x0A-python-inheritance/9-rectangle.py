@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-    Rectangle class inheriting other class
+    Rectangle class inheriting from BaseGeometry
 """
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
     """
-    class  that inherits from BaseGeometry
+    Class that inherits from BaseGeometry
     """
     def __init__(self, width, height):
         """
@@ -20,7 +20,7 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """
-        define the area
+        Define the area
         """
         return self.__width * self.__height
 
@@ -28,4 +28,5 @@ class Rectangle(BaseGeometry):
         """
             Rectangle with str
         """
-        return("[Rectangle] {}/{}".format(self.__width, self.__height))
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)  # Removed extra parenthesis
+
