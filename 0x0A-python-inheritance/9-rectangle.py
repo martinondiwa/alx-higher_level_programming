@@ -13,20 +13,20 @@ class Rectangle(BaseGeometry):
         """
             Initialize rectangle from BaseGeometry
         """
-        self.integer_validator('width', width)
-        self.integer_validator('height', height)
-        self.__width = width
-        self.__height = height
+        self.integer_validator('width', width)  # Validate width
+        self.integer_validator('height', height)  # Validate height
+        self.__width = width  # Private attribute
+        self.__height = height  # Private attribute
 
     def area(self):
         """
         Define the area
         """
-        return self.__width * self.__height
+        return self.__width * self.__height  # Calculate area
 
     def __str__(self):
         """
             Rectangle with str
         """
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)  # Removed extra parenthesis
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)  # Return formatted string
 
