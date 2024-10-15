@@ -1,6 +1,5 @@
-#!/usr/bin/python3
+file_content = open('dados/some_sb.csv', encoding='utf-8', mode='w')
 
+new_content = '1,someContent'
 
-def write_file(filename="", text=""):
-    with open(filename, "w", encoding="UTF-8") as f:
-        return f.write(text)
+file_content.write(new_content)
